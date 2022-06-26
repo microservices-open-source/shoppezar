@@ -1,0 +1,24 @@
+server:
+  port: 1000
+
+management:
+  endpoints: 
+    web:
+      exposure: 
+        include: "health, info"
+  info:
+    java:
+      enabled: true
+    env:
+      enabled: true
+
+info:
+  application: config-server
+  label: Config Server
+  version: 1.0.0
+  state: Development
+
+---
+spring:
+  profiles:
+    active: native
