@@ -1,0 +1,104 @@
+server:
+  port: 1001
+
+management:
+  endpoints: 
+    web:
+      exposure: 
+        include: "health, info"
+  info:
+    java:
+      enabled: true
+    env:
+      enabled: true
+
+info:
+  application: discovery-service
+  label: Discovery Service
+  version: 1.0.0
+  state: Development
+
+spring:
+  security:
+    user:
+      name: richard
+      password: richard
+  application:
+    name: discovery-service
+  cloud:
+    loadbalancer:
+      cache:
+        ttl: 35
+  cache:
+    cache-names: discovery-service
+  devtools:
+    restart:
+      enabled: true
+
+eureka:
+  datacenter: Default
+  environment: Default
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+logging:
+  file:
+    name: ${pwd}/discovery-service/log/application.log
+  pattern: 
+    console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
+
+--- 
+spring:
+  config:
+    activate:
+      on-profile:
+      - localhost
+eureka:
+  datacenter: Localhost
+  environment: Localhost
+  instance:
+    hostname: 192.168.1.10
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+---
+spring:
+  config:
+    activate:
+      on-profile:
+      - development
+eureka:
+  datacenter: Development
+  environment: Development
+  instance:
+    hostname: 192.168.1.9
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+---
+spring:
+  config:
+    activate:
+      on-profile:
+      - production
+eureka:
+  datacenter: Production
+  environment: Production
+  instance:
+    hostname: 192.168.1.9
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

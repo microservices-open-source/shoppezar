@@ -16,6 +16,37 @@
       "request": "launch",
       "mainClass": "com.richard.services.application.ShoppezarConfigServiceApplication",
       "projectName": "shoppezar-config-service"
+    },
+    {
+      "type": "java",
+      "name": "2A Discovery Service",
+      "request": "launch",
+      "mainClass": "com.richard.services.application.ShoppezarDiscoveryServiceApplication",
+      "projectName": "shoppezar-discovery-service"
+    },
+    {
+      "type": "java",
+      "name": "2B Discovery Service",
+      "request": "launch",
+      "mainClass": "com.richard.services.application.ShoppezarDiscoveryServiceApplication",
+      "projectName": "shoppezar-discovery-service",
+      "args": "--spring.profiles.active=localhost"
+    },
+    {
+      "type": "java",
+      "name": "2C Discovery Service",
+      "request": "launch",
+      "mainClass": "com.richard.services.application.ShoppezarDiscoveryServiceApplication",
+      "projectName": "shoppezar-discovery-service",
+      "args": "--spring.profiles.active=development"
+    },
+    {
+      "type": "java",
+      "name": "2D Discovery Service",
+      "request": "launch",
+      "mainClass": "com.richard.services.application.ShoppezarDiscoveryServiceApplication",
+      "projectName": "shoppezar-discovery-service",
+      "args": "--spring.profiles.active=production"
     }
   ]
 }

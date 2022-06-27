@@ -9,6 +9,7 @@
 
 	<modules>
 		<module>shoppezar-config-service</module>
+		<module>shoppezar-discovery-service</module>
 	</modules>
 
 	<build>
